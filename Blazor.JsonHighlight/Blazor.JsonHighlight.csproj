@@ -2,8 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>lishewen</Authors>
+    <IsPackable>true</IsPackable>
+    <Description>
+      Blazor版本的JSON高亮组件（非JS版本）
+      使用方式见Demo项目
+    </Description>
+    <PackageProjectUrl>https://github.com/lishewen/Blazor.JsonHighlight</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lishewen/Blazor.JsonHighlight</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <projectUrl>https://github.com/lishewen/Blazor.JsonHighlight</projectUrl>
+    <PackageTags>Blazor,.net core,Json,Highlight</PackageTags>
   </PropertyGroup>
-
   
   <ItemGroup>
     <SupportedPlatform Include="browser" />
