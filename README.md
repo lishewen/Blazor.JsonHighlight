@@ -10,6 +10,7 @@
 3. 在`wwwroot/index.html`文件的`Head`中引入：
 ```html
 <link href="https://lib.baomitu.com/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link href="_content/Blazor.JsonHighlight/Blazor.JsonHighlight.bundle.scp.css" rel="stylesheet">
 ```
 4. 在页面中使用组件（可参考Demo项目）。
 ```html
