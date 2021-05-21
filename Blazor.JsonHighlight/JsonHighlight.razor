@@ -1,0 +1,52 @@
+﻿@{
+    switch (Element.ValueKind)
+    {
+        case JsonValueKind.Object:
+            {
+                @Space(0)<i style="cursor:pointer;" class="@iconName" @onclick="OnExpandClick" /><span>{</span>
+                <br />
+                <span style="display:@display">
+                    @foreach (var jel in Element.EnumerateObject())
+                    {
+                        @Tab(Level + 1)<span class="json_key">&#34;@jel.Name&#34;:</span>
+                        <JsonHighlight Element="jel.Value" Level="this.Level+1"></JsonHighlight>
+                    }@Tab(Level)
+                </span><span>}</span>@Space(0)<br />
+            }
+            break;
+        case JsonValueKind.Array:
+            {
+                int cc = 1;
+                @Space(0)<i style="cursor:pointer;" class="@iconName" @onclick="OnExpandClick" /><span>[</span>
+                <br />
+                <span style="display:@display">
+                    @foreach (var jel in Element.EnumerateArray())
+                    {
+                        @Tab(Level + 1)@cc<span>:</span>
+                        <JsonHighlight Element="jel" Level="this.Level+1"></JsonHighlight>
+                        ++cc;
+                    }
+                    @Tab(Level)
+                </span><span>]</span>@Space(0)<br />
+            }
+            break;
+        case JsonValueKind.Number:
+            <span class="json_number">@Element.GetDouble()</span><br />
+            break;
+        case JsonValueKind.String:
+            @Space(0)<span class="json_string">&#34;@Element.GetString()&#34;</span>@Space(0)<br />
+            break;
+        case JsonValueKind.True:
+            @Space(0)<span class="json_boolean">true</span>@Space(0)<br />
+            break;
+        case JsonValueKind.False:
+            @Space(0)<span class="json_boolean">false</span>@Space(0)<br />
+            break;
+        case JsonValueKind.Null:
+            @Space(0)<span class="json_null">null</span>@Space(0)<br />
+            break;
+        case JsonValueKind.Undefined:
+            @Space(0)<span>undefined</span>@Space(0)<br />
+            break;
+    } 
+}
